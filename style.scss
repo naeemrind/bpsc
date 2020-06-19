@@ -1,0 +1,397 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Ubuntu:wght@300;400;500&display=swap');
+@import 'config';
+
+
+
+
+
+
+
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body,
+p,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+blockquote,
+figure,
+fieldset,
+legend,
+textarea,
+pre,
+iframe,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.container {
+    margin: 0 auto;
+    width: auto;
+    padding: 0;
+    // border: 2px solid orange;
+    // background-color: palegreen;
+
+    @include breakpoint(xl) {
+        width: 1100px;
+    }
+}
+
+
+
+
+.logo-area {
+    // border: 2px solid red;
+    display: flex;
+    align-items: flex-start;
+    justify-content: start;
+    background-color: #e0e0e0;
+    height: 4.5rem;
+
+
+    .logo {
+        width: 4rem;
+        height: 4rem;
+        // border: indianred 1px solid;
+        margin-left: 1rem;
+        margin-top: 0.3rem;
+
+        img {
+            height: 100%;
+        }
+
+        @include breakpoint(md) {
+            width: 4.5rem;
+            height: 4.5rem;
+        }
+    }
+
+    h1 {
+        font-family: 'Barlow', sans-serif;
+        font-size: 1.7rem;
+        margin-left: 1rem;
+        line-height: 1;
+        align-self: center;
+
+        @include breakpoint(md) {
+            font-size: 2.3rem;
+        }
+
+        @include breakpoint(lg) {
+            font-size: 2.7rem;
+        }
+
+    }
+
+
+   
+
+    .flex {
+        display: flex;
+        align-items: center;
+    }
+
+
+    @include breakpoint(md) {
+        height: 4.8rem;
+    }
+
+    @include breakpoint(lg) {
+        height: 5rem;
+    }
+
+
+}
+
+// Logo-area End ------------------------------
+
+
+// menu button start ----------------------------
+
+.menu-btn {
+    @include clearfix;
+
+    .hambrgr {
+        width: 2.4rem;
+        height: 2.4rem;
+        float: right;
+        margin-right: 0.5rem;
+        // border: 1px solid #0400ff;
+
+        .open svg {
+            fill: #9c9c9c;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+    }
+
+    @include breakpoint(md) {
+        display: none;
+    }
+
+
+}
+
+#open {
+    display: none;
+}
+
+#open:checked~nav .nav-links {
+    max-height: 26rem;
+}
+
+// menu button end -----------------------------
+
+
+
+// nav start ----------------------------
+
+nav {
+    background-color: #b7f0d0;
+
+
+    .nav-links {
+        list-style: none;
+        overflow: hidden;
+        max-height: 0;
+        transition: all 0.4s ease-in-out;
+        margin: 0;
+        padding: 0;
+        // background-color: #e7bbbb;
+
+        li {
+            display: block;
+
+            &:hover {
+                background-color: #c5c5c5;
+            }
+
+            &.apply-online {
+                background-color: purple;
+
+                a {
+                    color: white;
+                }
+            }
+
+            a {
+                text-decoration: none;
+                font-family: 'Ubuntu', sans-serif;
+                color: purple;
+                // border: 2px solid red;
+                display: block;
+                padding: 0.95rem;
+                margin: 0;
+
+                @include breakpoint(md) {
+                    padding: 0.8rem;
+                }
+
+            }
+
+            @include breakpoint(md) {
+                display: inline-block;
+            }
+        }
+
+        @include breakpoint(md) {
+            // padding: 0.2rem;
+            width: 800px;
+            margin: 0 auto;
+            margin-top: 0.7rem;
+            // border: 1px solid red;
+        }
+
+        @include breakpoint(md) {
+            max-height: 4rem;
+        }
+
+
+    }
+
+    @include breakpoint(md) {
+        background-color: transparent;
+    }
+
+}
+
+// nav end -------------------------------------
+
+// main content start --------------------
+.main-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    article {
+        font-family: 'Ubuntu', sans-serif;
+        width: 100%;
+        padding: 1rem;
+
+        h1 {
+            text-align: center;
+            font-size: $heading;
+            color: #8b0df1;
+            font-weight: 300;
+            padding: 0 0 2rem 0;
+            line-height: 1.5;
+        }
+
+        &:nth-child(1) p {
+            color: #4e4e4e;
+            text-align: left;
+            font-size: $paragraph;
+            line-height: 1.55;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+
+        table tr:nth-child(even) {
+            background-color: #ebebeb;
+        }
+
+        table td {
+            font-size: $paragraph;
+            padding: 0.6rem;
+        }
+
+        @include breakpoint(sm) {
+            padding: 2rem 4rem;
+        }
+
+
+        @include breakpoint(md) {
+            padding: 2rem 5rem;
+        }
+
+
+        @include breakpoint(lg) {
+            width: 50%;
+            padding: 3rem 2rem;
+        }
+
+
+    }
+}
+
+
+
+
+.members-heading {
+    text-align: center;
+    font-size: $heading;
+    color: #8b0df1;
+    font-weight: 300;
+    padding: 2rem;
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+    line-height: 1.5;
+}
+
+
+
+.member-pics {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+
+
+    .member {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+
+
+        .member-pic {
+            width: 13rem;
+            height: 13rem;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 50%;
+            border: 1px solid orange;
+        }
+
+        &.member-one .member-pic {
+            background-image: url(one.jpg);
+        }
+
+        &.member-two .member-pic {
+            background-image: url(two.jpg);
+        }
+
+        &.member-three .member-pic {
+            background-image: url(three.jpg);
+        }
+
+        &.member-four .member-pic {
+            background-image: url(four.jpg);
+        }
+
+        h3 {
+            font-weight: 400;
+            font-size: $caption;
+            padding: 1.2rem;
+            font-family: 'Ubuntu', sans-serif;
+
+            @include breakpoint(md) {
+                font-size: $caption;
+            }
+        }
+
+
+        @include breakpoint(md) {
+            width: 50%;
+        }
+
+
+    }
+
+
+}
+
+// member pics section end
+
+
+// footer start
+footer {
+    .footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        background-color: lightgray;
+        color: #464d55;
+        font-family: 'Ubuntu', sans-serif;
+        font-size: $paragraph;
+    }
+}

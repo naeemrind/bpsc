@@ -1,0 +1,52 @@
+// break-points ---------------------------------------
+@mixin breakpoint($class) {
+    @if $class==xs {
+        @media (max-width: 576px) {
+            @content;
+        }
+    }
+
+    @else if $class==sm {
+        @media (min-width: 576px) {
+            @content;
+        }
+    }
+
+    @else if $class==md {
+        @media (min-width: 768px) {
+            @content;
+        }
+    }
+
+    @else if $class==lg {
+        @media (min-width: 992px) {
+            @content;
+        }
+    }
+
+    @else if $class==xl {
+        @media (min-width: 1200px) {
+            @content;
+        }
+    }
+
+    @else {
+        @warn "Breakpoint mixin supports: xs, sm, md, lg, xl";
+    }
+}
+
+// float clearfix ----------------------------------------
+@mixin clearfix {
+    &:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
+
+//variables --------------------------------------------
+
+$heading: 2.2rem;
+$paragraph: 1rem;
+$caption: 1rem;
